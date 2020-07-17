@@ -39,7 +39,7 @@ class SortController extends Controller
         $startTime = microtime(true);
         //実行回数分だけ繰り返す
         for($i=0;$i<$numCount;$i++){
-            sort($num);
+            $num = $this->sort($num,$flag);
             $count+=1;
         }
         $endTime = microtime(true);
@@ -58,7 +58,7 @@ class SortController extends Controller
      * @return array $num:ソートした配列
      * 
      */
-    public function sort($num){
+    public function sort($num,$flag){
         //ソートを実行
         for($i=0;$i<count($num);$i++){
             for($j=$i+1;$j<=count($num)-1;$j++){
